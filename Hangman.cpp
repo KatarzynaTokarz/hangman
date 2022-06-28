@@ -4,15 +4,15 @@
 
 const int nrOfTries = 5;
 
-int letterFill(char guess, std::string secretword, std::string& emptyWord)
+int letterFill(char letter, std::string secretword, std::string& emptyWord)
 {
 	int matches = 0;
 	int length = secretword.length();
 	for (int i = 0; i < length; i++)
 	{
-		if (guess == secretword[i])
+		if (letter == secretword[i])
 		{
-			emptyWord[i] = guess;
+			emptyWord[i] = letter;
 			matches++;
 		}
 	}
@@ -30,7 +30,7 @@ int main()
 	srand(time(NULL));
 	int n = rand() % 10;
 	secretWord = words[n];
-	std::string* emptyWord = new std::string[secretWord.length()];
+	std::string *emptyWord = new std::string[secretWord.length()];
 
 	std::cout << "Welcome to hangman!Your task is to guess an animal." << std::endl;
 	std::cout << "You can enter only one letter in one try" << std::endl;
